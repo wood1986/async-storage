@@ -20,6 +20,7 @@ buildscript {
 
 apply plugin: 'com.android.library'
 apply from: 'config.gradle'
+apply plugin: 'org.jetbrains.kotlin.android'
 
 boolean isNewArchitectureEnabled = ext.AsyncStorageConfig.isNewArchitectureEnabled
 boolean useNextStorage = ext.AsyncStorageConfig.useNextStorage
@@ -90,6 +91,9 @@ android {
             }
         }
     }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
 }
 
 repositories {
@@ -121,4 +125,5 @@ dependencies {
     }
 
     implementation 'com.facebook.react:react-native:+' // from node_modules
+    implementation 'androidx.core:core-ktx:1.13.1'
 }
